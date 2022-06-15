@@ -24,10 +24,4 @@ export class ProductNumber extends BaseEntity {
     onDelete: 'RESTRICT',
   })
   account: Account;
-
-  @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
-  updatedAt: Date;
 }

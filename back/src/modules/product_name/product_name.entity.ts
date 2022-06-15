@@ -6,7 +6,7 @@ import { OneToMany } from 'typeorm/decorator/relations/OneToMany';
 import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGeneratedColumn';
 import { UpdateDateColumn } from 'typeorm/decorator/columns/UpdateDateColumn';
 import { status } from '../../shared/entity_status.enum';
-import { product_i18n } from '../product_i18n/product_i18n.entity';
+import { Product_i18n } from '../product_i18n/product_i18n.entity';
 
 @Entity('product_name')
 export class ProductName extends BaseEntity {
@@ -22,12 +22,6 @@ export class ProductName extends BaseEntity {
   @Column({ type: 'numeric' })
   product_id: number;
 
-  @OneToMany(() => Account, (account) => account.customer)
-  accounts: Account[];
-
-  @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
-  updatedAt: Date;
+  @OneToMany(() => Product_i18n, (product_i18n) => product_i18n.customer)
+  product_i18n: Product_i18n[];
 }

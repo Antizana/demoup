@@ -6,11 +6,11 @@ import { ManyToOne } from 'typeorm/decorator/relations/ManyToOne';
 import { OneToMany } from 'typeorm/decorator/relations/OneToMany';
 import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGeneratedColumn';
 import { UpdateDateColumn } from 'typeorm/decorator/columns/UpdateDateColumn';
-import { Transaction } from '../product_number/transaction.entity';
-import { Customer } from '../product_name/product_name.entity';
+import { Transaction } from '../product_number/product_number.entity';
+import { ProductName } from '../product_name/product_name.entity';
 
 @Entity('product_i18n')
-export class product_i18n extends BaseEntity {
+export class Product_i18n extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   product_i18n_id: number;
 
@@ -23,11 +23,11 @@ export class product_i18n extends BaseEntity {
   @OneToMany(() => Transaction, (transaction) => transaction.account)
   transactions: Transaction[];
 
-  @ManyToOne(() => Customer, (customer) => customer.accounts, {
+  @ManyToOne(() => ProductName, (productName) => productName.product_name_id, {
     eager: true,
     nullable: false,
     onDelete: 'RESTRICT',
   })
-  customer: Customer;
+  productName: ProductName;
 
 }
