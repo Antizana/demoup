@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm/dist/common/typeorm.decorators';
 import { plainToInstance } from 'class-transformer';
 import { ReadTransactionDto } from './dto/read_transaction.dto';
-import { Transaction } from './transaction.entity';
+import { Transaction } from './product_number.entity';
 import { TransactionRepository } from './transaction.repository';
 
 @Injectable()

@@ -7,19 +7,16 @@ import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGenerat
 import { UpdateDateColumn } from 'typeorm/decorator/columns/UpdateDateColumn';
 import { Account } from '../product_i18n/product_i18n.entity';
 
-@Entity('transactions')
-export class Transaction extends BaseEntity {
+@Entity('product_number')
+export class ProductNumber extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
-  id: number;
+  product_number_id: number;
 
-  @Column({ type: 'varchar', length: 8 })
-  type: string;
-
-  @Column({ type: 'numeric', precision: 10, scale: 2 })
-  amount: number;
+  @Column({ type: 'varchar', length: 100 })
+  product_number: string;
 
   @Column({ type: 'numeric' })
-  accountId: number;
+  product_id: number;
 
   @ManyToOne(() => Account, (account) => account.transactions, {
     eager: true,

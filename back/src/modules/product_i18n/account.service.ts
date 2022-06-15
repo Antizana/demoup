@@ -5,7 +5,7 @@ import { Account } from './product_i18n.entity';
 import { AccountRepository } from './account.repository';
 import { CustomerRepository } from '../product_name/customer.repository';
 import { TransactionRepository } from '../product_number/transaction.repository';
-import { Transaction } from '../product_number/transaction.entity';
+import { Transaction } from '../product_number/product_number.entity';
 import { ReadAccountDto } from './dto/read_account.dto';
 import { plainToInstance } from 'class-transformer';
 import { Customer } from '../product_name/product_name.entity';

@@ -9,18 +9,18 @@ import { status } from '../../shared/entity_status.enum';
 import { product_i18n } from '../product_i18n/product_i18n.entity';
 
 @Entity('product_name')
-export class Customer extends BaseEntity {
+export class ProductName extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   product_name_id: number;
 
-  @Column({ type: 'varchar', unique: true, length: 25, nullable: false })
-  product_name: number;
-
-  @Column({ type: 'varchar', unique: true, length: 25, nullable: false })
-  surname: string;
+  @Column({ type: 'varchar', length: 255 })
+  product_name: string;
 
   @Column({ type: 'varchar', default: status.ACTIVE, length: 8 })
   status: string;
+
+  @Column({ type: 'numeric' })
+  product_id: number;
 
   @OneToMany(() => Account, (account) => account.customer)
   accounts: Account[];
